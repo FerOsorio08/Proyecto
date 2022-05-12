@@ -26,33 +26,23 @@ def square(start, end):
     end_fill()
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
-def rectangle(start, end):
-    "Draw square from start to end."
     up()
-    goto(start.x, start.y)
+    radio=((start.x-end.x)**2+(start.y-end.y)**2)**(1/2)
+    goto(start.x,start.y-radio)
     down()
     begin_fill()
-
-    for count in range(2):
-        forward(end.x - start.x)
-        left(90)
-        forward(end.y - start.y)
-        left(90)
-
+    turtle.circle(radio)
     end_fill()
+    colors = ["cyan", "DeepPink", "DarkViolet", "DarkSeaGreen1", "DarkRed", "DarkMagenta"]
+    
+    for i in range(int(radio)):
+        turtle.circle(i,30)
+        turtle.color(colors[i%6])
+def rectangle(start, end):
+    "Draw rectangle from start to end."
     pass  # TODO
 def triangle(start, end):
     "Draw triangle from start to end."
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
-    for count in range(3):
-        forward(end.x - start.x)
-        left(120)
-    end_fill()
-
     pass  # TODO
 def tap(x, y):
     "Store starting point or draw shape."

@@ -1,17 +1,14 @@
 """Paint, for drawing shapes.
-
 Exercises
-
 1. Add a color.
 2. Complete circle.
 3. Complete rectangle.
 4. Complete triangle.
 5. Add width parameter.
-
 """
-
 from turtle import *
 from freegames import vector
+import turtle
 
 def line(start, end):
     "Draw line from start to end."
@@ -19,36 +16,39 @@ def line(start, end):
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
-
 def square(start, end):
     "Draw square from start to end."
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
-
     for count in range(4):
         forward(end.x - start.x)
         left(90)
-
     end_fill()
-
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
-
+    up()
+    radio=((start.x-end.x)**2+(start.y-end.y)**2)**(1/2)
+    goto(start.x,start.y-radio)
+    down()
+    begin_fill()
+    turtle.circle(radio)
+    end_fill()
+    colors = ["cyan", "DeepPink", "DarkViolet", "DarkSeaGreen1", "DarkRed", "DarkMagenta"]
+    
+    for i in range(int(radio)):
+        turtle.circle(i,30)
+        turtle.color(colors[i%6])
 def rectangle(start, end):
     "Draw rectangle from start to end."
     pass  # TODO
-
 def triangle(start, end):
     "Draw triangle from start to end."
     pass  # TODO
-
 def tap(x, y):
     "Store starting point or draw shape."
     start = state['start']
-
     if start is None:
         state['start'] = vector(x, y)
     else:
@@ -56,11 +56,9 @@ def tap(x, y):
         end = vector(x, y)
         shape(start, end)
         state['start'] = None
-
 def store(key, value):
     "Store value in state at key."
     state[key] = value
-
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)
 onscreenclick(tap)

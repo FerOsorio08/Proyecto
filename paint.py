@@ -1,3 +1,4 @@
+"Emilia Salazar, Fernanda Osorio, Fernanda Cortes"
 """Paint, for drawing shapes.
 Exercises
 1. Add a color.

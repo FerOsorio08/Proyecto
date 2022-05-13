@@ -1,4 +1,5 @@
-:"""Pacman, classic arcade ga
+"Emilia Salazar, Fernanda Osorio y Fernanda Cortes"
+"""Pacman, classic arcade ga
 Exercises
 
 1. Change the board.

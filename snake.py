@@ -12,10 +12,18 @@ Exercises
 from turtle import *
 from random import randrange
 from freegames import square, vector
+#from random import randit
+from random import choice
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+colors = ['blue','black','yellow','pink','green']
+#colorcito = randint(0, 4)
+#colorcito2 = randint(0, 4)
+colores = [0,1,2,3,4]
+selection = choice(colores)
+selection2 = choice(colores)
 
 def change(x, y):
     "Change snake direction."
@@ -48,9 +56,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colors[selection])
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colors[selection2])
     update()
     ontimer(move, 100)
 
